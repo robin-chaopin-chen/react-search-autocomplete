@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { FaSearch } from "react-icons/fa";
 
 // Define the structure of individual item objects expected from the JSON endpoint
 interface KatanaItem {
@@ -66,12 +67,12 @@ export const KatanaSearch: React.FC = () => {
       <div className="flex flex-col space-y-2">
         {/* Single-line text input styled with Tailwind */}
         <form className="flex items-center gap-2">
-              <input id="search" type="text" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search the Katana you want..." className="w-full bg-white rounded-full border-1 border-gray-700 text-gray-700 py-2 px-4 m-1" disabled={isLoading || !!error}/>
+              <input id="search" type="text" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search the Katana you want..." className="bg-white rounded-full border-1 border-gray-700 text-gray-700 py-2 px-4 m-1" disabled={isLoading || !!error}/>
               <button
                 type="submit"
-                className="rounded-full border border-2 border-white py-3 px-3 m-1 bg-blue-700 bg-blue-700 hover:bg-blue-500 transition duration-700 ease-in-out"
+                className="bg-blue-700 hover:bg-blue-500 rounded-full text-white py-3 px-3 m-1"
               >
-                Search
+                <FaSearch />
               </button>
             </form>
       </div>
@@ -90,14 +91,14 @@ export const KatanaSearch: React.FC = () => {
 
       {/* 3. Conditional DIV Block: Displays exclusively when user has typed text */}
       {query.trim().length > 0 && !isLoading && !error && (
-        <div className="fixed w-full max-w-md mx-auto mt-1 border border-gray-100 bg-gray-50 rounded-lg shadow-inner max-h-60 overflow-y-auto transition-all duration-200">
+        <div className="fixed w-72 mt-1 border border-gray-100 bg-gray-50 rounded-lg shadow-inner max-h-60 overflow-y-auto transition-all duration-200">
           {filteredResults.length > 0 ? (
             <div className="space-y-3">
 
               {filteredResults.map((item, index) => (
                 <div 
                   key={index} 
-                  className="flex justify-between items-center p-2 bg-white rounded transition-colors"
+                  className="flex justify-between items-center p-2 bg-white border-b-1 border-dashed border-gray-500 transition-colors"
                 >
                   <span className="cursor-pointer font-medium text-black hover:text-blue-700">{item.name}</span>
                   <span className="cursor-pointer text-sm font-mono font-bold text-black">
