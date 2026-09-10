@@ -65,15 +65,15 @@ export const KatanaSearch: React.FC = () => {
     <div className="w-full max-w-md mx-auto">
       <div className="flex flex-col space-y-2">
         {/* Single-line text input styled with Tailwind */}
-        <input
-          id="search"
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search the Katana you want..."
-          className="w-full bg-white rounded-full border-1 border-gray-700 text-gray-700 py-2 px-4 m-1"
-          disabled={isLoading || !!error}
-        />
+        <form className="flex items-center gap-2">
+              <input id="search" type="text" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search the Katana you want..." className="w-full bg-white rounded-full border-1 border-gray-700 text-gray-700 py-2 px-4 m-1" disabled={isLoading || !!error}/>
+              <button
+                type="submit"
+                className="rounded-full border border-2 border-white py-3 px-3 m-1 bg-blue-700 bg-blue-700 hover:bg-blue-500 transition duration-700 ease-in-out"
+              >
+                Search
+              </button>
+            </form>
       </div>
 
       {/* Network Status Indicators */}
