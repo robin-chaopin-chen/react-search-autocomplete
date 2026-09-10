@@ -71,7 +71,7 @@ export const KatanaSearch: React.FC = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search the Katana you want..."
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+          className="w-full bg-white rounded-full border-1 border-gray-700 text-gray-700 py-2 px-4 m-1"
           disabled={isLoading || !!error}
         />
       </div>
